@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "name": "Mansi Padsala",
+      "email": "mansi@gmail.com",
+      "role": "admin",
+      "password": "1234",
+      "id": "-nvc50CXN5g"
+    },
+    {
+      "name": "hensii",
+      "email": "hensi@gmail.com",
+      "role": "user",
+      "password": "1234",
+      "id": "CaHGmAb9P_o"
+    },
+    {
+      "name": "dhvanii",
+      "email": "dhvani@gmail.com",
+      "role": "user",
+      "password": "1234",
+      "id": "ej3WGzZQ4Lc"
+    }
+  
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
