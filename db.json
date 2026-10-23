@@ -20,8 +20,14 @@
       "role": "user",
       "password": "1234",
       "id": "ej3WGzZQ4Lc"
+    },
+    {
+      "name": "khushi",
+      "email": "khushi@gmail.com",
+      "role": "user",
+      "password": "1234",
+      "id": "yAcWdBaY2aE"
     }
-  
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }

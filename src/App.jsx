@@ -15,7 +15,7 @@ function App() {
       <Route path="/reg" element={<Regestration/>}></Route>
 
      <Route element={<Protected/>}>
-       <Route path="/admindash" element={<AdminDashboard/>}></Route>
+       <Route path="admindash" element={<AdminDashboard/>}></Route>
      </Route>
      
       <Route path="/userdash" element={<UserDashboard/>}></Route>

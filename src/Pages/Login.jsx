@@ -63,7 +63,6 @@ const Login = () => {
     <div align="center">
       <h2>Login</h2>
       <form action="" onSubmit={handleSubmit}>
-       
         <p>
           Email :
           <input type="text" name='email' placeholder='Enter email' onChange={handleChange} />

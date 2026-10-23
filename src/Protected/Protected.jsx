@@ -5,9 +5,8 @@ import { Navigate, Outlet } from "react-router-dom"
 const Protected=()=>{
     const {user}=useAuth()
     
-        if(!user  || user.role!="admin"){
+        if(!user || user.role!="admin"){
             
-            alert("you can not access admin dashboard")
             return <Navigate to={`/`} replace/>
         }
     
