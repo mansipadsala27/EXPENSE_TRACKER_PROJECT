@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, Navigate, replace, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 const Login = () => {
@@ -27,7 +27,7 @@ const Login = () => {
     // alert("Login succefully")
     
       try{
-      let res=await fetch(`http://localhost:3000/users?email=${formdata.email}`,{
+      let res=await fetch(`http://localhost:8000/users?email=${formdata.email}`,{
         headers:{
           'conternt-type':'application/json'
         },
@@ -40,10 +40,11 @@ const Login = () => {
       if(result.length > 0 &&  result[0].email==formdata.email && result[0].password==formdata.password){        
         let storeuser=result[0]
         localStorage.setItem('loginUser',JSON.stringify(storeuser))
-        // console.log(storeuser);
+        console.log(storeuser);
 
         if(storeuser?.role=="admin"){
-          navigate('/admindash')
+            alert("Login Successfully")
+              navigate('/admindash')
         }
         else{
           navigate('/userdash')

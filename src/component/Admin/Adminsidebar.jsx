@@ -14,12 +14,13 @@ import { useAuth } from "../../context/AuthContext";
 
 const Adminsidebar = () => {
 const navigate=useNavigate()
-const {User,setUser}=useAuth()
+const {user,setUser}=useAuth()
 
 const handleLogout=()=>{
  localStorage.removeItem('loginUser')
  setUser(null)
- navigate('/')
+ console.log(user);
+  navigate('/')
 }
   return (
     <aside className="admin-sidebar">

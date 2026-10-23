@@ -2,31 +2,24 @@
   "users": [
     {
       "name": "Mansi Padsala",
-      "email": "mansi@gmail.com",
+      "email": "padsalamanu@gmail.com",
       "role": "admin",
       "password": "1234",
-      "id": "-nvc50CXN5g"
+      "id": "XzKZben46jM"
     },
     {
-      "name": "hensii",
+      "name": "hensi",
       "email": "hensi@gmail.com",
       "role": "user",
       "password": "1234",
-      "id": "CaHGmAb9P_o"
+      "id": "-_U7yrfvP-s"
     },
     {
-      "name": "dhvanii",
+      "name": "dhvani",
       "email": "dhvani@gmail.com",
       "role": "user",
       "password": "1234",
-      "id": "ej3WGzZQ4Lc"
-    },
-    {
-      "name": "khushi",
-      "email": "khushi@gmail.com",
-      "role": "user",
-      "password": "1234",
-      "id": "yAcWdBaY2aE"
+      "id": "zaL_8AcyuoU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
