@@ -19,8 +19,8 @@ const {user,setUser}=useAuth()
 const handleLogout=()=>{
  localStorage.removeItem('loginUser')
  setUser(null)
- console.log(user);
-  navigate('/')
+
+  navigate('/',{replace:true})
 }
   return (
     <aside className="admin-sidebar">
