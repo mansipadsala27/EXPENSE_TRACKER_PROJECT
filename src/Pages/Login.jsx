@@ -40,7 +40,7 @@ const Login = () => {
       if(result.length > 0 &&  result[0].email==formdata.email && result[0].password==formdata.password){        
         let storeuser=result[0]
         localStorage.setItem('loginUser',JSON.stringify(storeuser))
-      
+        // console.log(storeuser);
         setUser(storeuser)
         if(storeuser?.role=="admin"){
             alert("Login Successfully")

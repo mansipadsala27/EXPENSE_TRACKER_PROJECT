@@ -27,7 +27,7 @@ const Regestration = () => {
     
     
     try{
-      let res=await fetch(`http://localhost:3000/users`,{
+      let res=await fetch(`http://localhost:8000/users`,{
         headers:{
           'conternt-type':'application/json'
         },

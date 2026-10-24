@@ -20,6 +20,13 @@
       "role": "user",
       "password": "1234",
       "id": "zaL_8AcyuoU"
+    },
+    {
+      "name": "disha",
+      "email": "disha@gmail.com",
+      "role": "user",
+      "password": "1234",
+      "id": "4gSjr1kTOtk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
