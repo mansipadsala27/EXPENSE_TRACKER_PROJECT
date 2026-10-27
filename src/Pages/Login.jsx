@@ -1,85 +1,142 @@
-import React, { useEffect, useState } from 'react'
-import { Link, Navigate, replace, useNavigate } from 'react-router-dom'
+
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import '../css/Login.css'
+import { FaEnvelope, FaLock } from 'react-icons/fa'
 
 const Login = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
-   const [formdata,setFormData]=useState({
-      name:'',
-      email:'',
-      password:''
-    })
+  const [formdata, setFormData] = useState({
+    name: '',
+    email: '',
+    password: ''
+  })
 
-    const handleChange=(e)=>{
+  const handleChange = (e) => {
     e.preventDefault()
-    const{name,value}=e.target
+    const { name, value } = e.target
+
     setFormData({
       ...formdata,
-      [name]:value
+      [name]: value
     })
-
   }
-  const {user,setUser}=useAuth()
 
-   const handleSubmit=async(e)=>{
+  const { setUser } = useAuth()
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // alert("Login succefully")
-    
-      try{
-      let res=await fetch(`http://localhost:8000/users?email=${formdata.email}`,{
-        headers:{
-          'conternt-type':'application/json'
-        },
-        method:'GET',         
 
-      })
-      let result= await res.json()
-      // console.log(result);
-      
-      if(result.length > 0 &&  result[0].email==formdata.email && result[0].password==formdata.password){        
-        let storeuser=result[0]
-        localStorage.setItem('loginUser',JSON.stringify(storeuser))
-        // console.log(storeuser);
-        setUser(storeuser)
-        if(storeuser?.role=="admin"){
-            alert("Login Successfully")
-              navigate('/admindash',{replace:true})
+    try {
+      let res = await fetch(
+        `http://localhost:8000/users?email=${formdata.email}`,
+        {
+          headers: {
+            'content-type': 'application/json'
+          },
+          method: 'GET'
         }
-        else{
+      )
+
+      let result = await res.json()
+
+      if (
+        result.length > 0 &&
+        result[0].email == formdata.email &&
+        result[0].password == formdata.password
+      ) {
+        let storeuser = result[0]
+
+        localStorage.setItem('loginUser', JSON.stringify(storeuser))
+        setUser(storeuser)
+
+        if (storeuser?.role == 'admin') {
+          alert('Login Successfully')
+          navigate('/admindash', { replace: true })
+        } else {
           navigate('/userdash')
         }
+      } else {
+        alert('Invalid email or password')
       }
-      else{
-        alert("Invalid email or password")
-      }
-    }
-    catch(err){
-      console.log(err);
+    } catch (err) {
+      console.log(err)
       return false
-      
     }
   }
+
   return (
-    <div align="center">
-      <h2>Login</h2>
-      <form action="" onSubmit={handleSubmit}>
-        <p>
-          Email :
-          <input type="text" name='email' placeholder='Enter email' onChange={handleChange} />
-          </p>        
-          <p>
-            password:
-            <input type="text" name='password' placeholder='Enter Password ' onChange={handleChange}/>
-          </p>
-          <p>
-            <button>Login</button>
-          </p>
-          <p>
-            <span>Create a new account ?</span>
-            <Link to={'/reg'}> sign up</Link>
-          </p>
-      </form>
+    <div className="login-container">
+      <div className="auth-page">
+        <div className="auth-card">
+          <div className="auth-form-section">
+            <form className="auth-form" onSubmit={handleSubmit}>
+              <h2 className="auth-heading">Welcome back!</h2>
+
+              <p className="auth-subtitle">
+                Sign in to continue to your dashboard.
+              </p>
+
+              <div className="auth-field">
+                <label htmlFor="email">Email address</label>
+
+                <div className="auth-input-wrap">
+                  <span className="auth-input-icon">
+                    <FaEnvelope />
+                  </span>
+
+                  <input
+                    className="auth-input"
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    value={formdata.email}
+                    onChange={handleChange}
+                    autoComplete="email"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="auth-field">
+                <label htmlFor="password">Password</label>
+
+                <div className="auth-input-wrap">
+                  <span className="auth-input-icon">
+                    <FaLock />
+                  </span>
+
+                  <input
+                    className="auth-input"
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    value={formdata.password}
+                    onChange={handleChange}
+                    autoComplete="current-password"
+                    required
+                  />
+                </div>
+              </div>
+
+              <button className="auth-button" type="submit">
+                Sign In →
+              </button>
+
+              <p className="auth-footer">
+                Don't have an account?{' '}
+                <Link className="auth-link" to="/reg">
+                  Create account
+                </Link>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

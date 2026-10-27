@@ -1,0 +1,125 @@
+
+/* Registration page background */
+.registration-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #eef2ff, #e9d5ff, #ddd6fe);
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Registration card */
+.registration-container form {
+  width: 100%;
+  max-width: 430px;
+  padding: 38px;
+  margin: 0;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #eeeafd;
+  border-radius: 22px;
+  box-shadow: 0 20px 55px rgba(63, 48, 120, 0.15);
+}
+
+/* Heading */
+.registration-container h2 {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 0 22px;
+  color: #242044;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+/* Form paragraphs */
+.registration-container form p {
+  margin: 0 0 22px;
+  color: #55536a;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Input fields */
+.registration-container input {
+  display: block;
+  width: 100%;
+  height: 48px;
+  margin-top: 9px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border: 1px solid #dedced;
+  border-radius: 10px;
+  outline: none;
+  background: #f9f8ff;
+  color: #25233a;
+  font-family: inherit;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.registration-container input:focus {
+  border-color: #7661e8;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(118, 97, 232, 0.1);
+}
+
+/* Submit button */
+.registration-container button {
+  width: 100%;
+  height: 49px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(100deg, #6257e8, #8952c7);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.registration-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(98, 87, 232, 0.25);
+}
+
+/* Sign in text */
+.registration-container form p:last-child {
+  margin: 22px 0 0;
+  text-align: center;
+  color: #77748a;
+  font-size: 13px;
+}
+
+.registration-container a {
+  color: #6d55d9;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.registration-container a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .registration-container {
+    padding: 18px;
+  }
+
+  .registration-container form {
+    padding: 28px 22px;
+  }
+
+  .registration-container h2 {
+    font-size: 26px;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import '../css/Regestration.css';
 
 const Regestration = () => {
   const navigate=useNavigate()
@@ -45,13 +46,12 @@ const Regestration = () => {
       
     }
 
-
     navigate('/')  
   }
 
 
   return (
-    <div align="center">
+    <div className="registration-container">
       <h2>Regestration User</h2>
       <form action="" onSubmit={handleSubmit}>
         <p>
