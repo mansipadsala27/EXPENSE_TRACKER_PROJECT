@@ -1,0 +1,133 @@
+.profile-page {
+    min-height: 100vh;
+    background: #f4f7fc;
+}
+
+.profile-content {
+    min-width: 0;
+    padding: 35px !important;
+}
+
+.profile-content h2 {
+    color: #1e293b;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.profile-subtitle {
+    color: #7b8493;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+/* Profile Card */
+.profile-card {
+    max-width: 500px;  /* Pehla 650px hatu */
+    margin: 15px auto;
+    padding: 25px;     /* Pehla 35px hatu */
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #e8edf5;
+    box-shadow: 0 8px 30px rgba(31, 41, 55, 0.07);
+    text-align: center;
+
+}
+/* Top Avatar */
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #e8eaff;
+    color: #4f46e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+}
+
+.profile-name {
+    color: #1e293b;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 7px;
+    overflow-wrap: anywhere;
+}
+
+.profile-label {
+    color: #7b8493;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Information section */
+.profile-info {
+    text-align: left;
+    border-top: 1px solid #edf0f5;
+}
+
+.profile-info-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 5px;
+    border-bottom: 1px solid #edf0f5;
+    transition: background 0.2s ease;
+}
+
+.profile-info-item:hover {
+    background: #f8faff;
+}
+
+.profile-info-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e8eaff;
+    color: #4f46e5;
+    font-size: 21px;
+}
+
+.email-icon {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.role-icon {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.profile-info-item span {
+    display: block;
+    color: #7b8493;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.profile-info-item h3 {
+    color: #263449;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-content {
+        padding: 20px 15px !important;
+    }
+
+    .profile-content h2 {
+        font-size: 24px;
+    }
+
+    .profile-card {
+        padding: 25px 18px;
+    }
+}

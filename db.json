@@ -92,6 +92,13 @@
       "amount": "250",
       "type": "expense",
       "id": "rOWzx7El934"
+    },
+    {
+      "userId": "zaL_8AcyuoU",
+      "title": "from mansi ",
+      "amount": "200",
+      "type": "income",
+      "id": "lf4msZAmpeI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

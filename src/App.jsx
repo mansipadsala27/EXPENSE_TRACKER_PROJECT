@@ -6,6 +6,7 @@ import UserDashboard from "./Pages/UserDashboard"
 import Protected from "./Protected/Protected"
 import Addexpense from "./Pages/Addexpense"
 import All_transactions from "./Pages/All_transactions"
+import Profile from "./Pages/Profile"
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <Route path="/userdash" element={<UserDashboard/>}></Route>
       <Route path="/addexpense" element={<Addexpense/>}></Route>
       <Route path="/alltransactions" element={<All_transactions/>}></Route>
+      <Route path="/profile" element={<Profile/>}></Route>
       
 
       

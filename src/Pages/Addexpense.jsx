@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Usersidebar from '../component/User/Usersidebar'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
-
+import '../css/Addexpense.css';
 
 
 const Addexpense = () => {
@@ -53,45 +53,63 @@ const Addexpense = () => {
 
     }
   return (
-     <div className="d-flex">
-          
-         <Usersidebar></Usersidebar>    
-          
-          <div className="flex-grow-1 p-4">
-            <h2 className="mb-4">Add expenses</h2>
-            
-              <form onSubmit={handleSubmit}>
-               <p>
-                 <select name="type" onChange={handleChange}>
-                    <option value="select type">
-                        Select type
-                    </option>
-                    <option value="expense">
-                        Expense
-                    </option>
-                    <option value="income">
-                        Income
-                    </option>
-                </select>
-               </p>
-                
-                <p>
-                    <label htmlFor="title">Title :- </label>
-                    <input type="text" name='title' placeholder='Enter title' onChange={handleChange}/>
-                </p>
-                <p>
-                    <label htmlFor="amount">Amount :- </label>
-                    <input type="text" name='amount' placeholder='Enter amount' onChange={handleChange}/>
-                </p>
-                <p>
-                    <button>Submit</button>
-                </p>
+  <div className="d-flex">
+    <Usersidebar />
 
-            </form>
-          </div>
+    <div className="addexpense-content">
+      <h2>Add Transaction</h2>
 
+      <form className="addexpense-form" onSubmit={handleSubmit}>
+
+        <div className="form-group">
+          <label htmlFor="type">Transaction Type</label>
+          <select
+            name="type"
+            id="type"
+            value={formdata.type}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select type</option>
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
         </div>
-  )
+
+        <div className="form-group">
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="e.g. Food, Salary, Shopping"
+            value={formdata.title}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="amount">Amount (₹)</label>
+          <input
+            type="number"
+            name="amount"
+            id="amount"
+            placeholder="Enter amount"
+            min="0.01"
+            step="0.01"
+            value={formdata.amount}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <button type="submit">Add Transaction</button>
+
+      </form>
+    </div>
+  </div>
+)
 }
 
 export default Addexpense
