@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Usersidebar = () => {
 const navigate=useNavigate()
@@ -41,35 +42,39 @@ const handleLogout=()=>{
       <p className="sidebar-heading">MAIN MENU</p>
 
       <nav className="sidebar-menu">
-        <a href="#dashboard" className="sidebar-link active">
+    
+        <Link to={`/userdash`} className="sidebar-link active">
           <LayoutDashboard size={19} />
           <span>Dashboard</span>
-        </a>
+        </Link>
 
-        <a href="#users" className="sidebar-link">
+       <Link className="sidebar-link">
           <Users size={19} />
           <span>Users</span>
-        </a>
+        </Link>
 
-        <a href="#categories" className="sidebar-link">
+
+        <Link to={`/addexpense`} className="sidebar-link">
           <Tags size={19} />
-          <span>Categories</span>
-        </a>
+          <span>Add expenses </span>
+        </Link>
 
-        <a href="#transactions" className="sidebar-link">
+        <Link to={`/alltransactions`} className="sidebar-link">
           <Receipt size={19} />
           <span>All Transactions</span>
-        </a>
+        </Link>
 
-        <a href="#reports" className="sidebar-link">
-          <ChartNoAxesCombined size={19} />
+
+        <Link className="sidebar-link">
+        <ChartNoAxesCombined size={19} />
           <span>Reports</span>
-        </a>
+        </Link>
 
-        <a href="#profile" className="sidebar-link">
-          <UserRound size={19} />
+        <Link className="sidebar-link">
+        <UserRound size={19} />
           <span>Profile</span>
-        </a>
+
+        </Link>
       </nav>
 
       <div className="sidebar-bottom">

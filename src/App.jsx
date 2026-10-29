@@ -4,6 +4,8 @@ import Regestration from "./Pages/Regestration"
 import AdminDashboard from "./Pages/AdminDashboard"
 import UserDashboard from "./Pages/UserDashboard"
 import Protected from "./Protected/Protected"
+import Addexpense from "./Pages/Addexpense"
+import All_transactions from "./Pages/All_transactions"
 
 function App() {
 
@@ -18,6 +20,10 @@ function App() {
      </Route>
      
       <Route path="/userdash" element={<UserDashboard/>}></Route>
+      <Route path="/addexpense" element={<Addexpense/>}></Route>
+      <Route path="/alltransactions" element={<All_transactions/>}></Route>
+      
+
       
 
     </Routes>
