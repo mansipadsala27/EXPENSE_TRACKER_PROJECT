@@ -2,13 +2,19 @@ import React, { useEffect, useState } from "react";
 import Usersidebar from "../component/User/Usersidebar";
 import { useAuth } from "../context/AuthContext";
 import "../css/All_transactions.css";
+import DashboardCard from "../component/User/DashboardCard";
+import { useDispatch, useSelector } from "react-redux";
+import { setexpenses ,deleteExpense} from "../features/expenseslice";
 
 const All_transactions = () => {
   const { user } = useAuth();
 
-  const [users, setUsers] = useState([]);
+  const dispatch=useDispatch()
+const expense = useSelector((state) => state.expenses.expenses);
+  
 
-  const fetchalldata = async () => {
+ useEffect(()=>{
+   const getdata = async () => {
     try {
       let res = await fetch(`http://localhost:8000/expenses`, {
         headers: {
@@ -18,38 +24,46 @@ const All_transactions = () => {
         body: JSON.stringify(),
       });
       let result = await res.json();
-      return result;
-    } catch (err) {
-      console.log(err);
-      return false;
-    }
-  };
-
-  const getdata = async () => {
-    try {
-      let data = await fetchalldata();
-
-      let userdata = data.filter((item) => {
-        return item.userId == user?.id;
+  
+      let userdata = result.filter((item) => {
+        return item.userId === user?.id;
       });
-      setUsers(userdata);
+     dispatch(setexpenses(userdata))
     } catch (err) {
       console.log(err);
       return false;
     }
   };
+  if(user?.id){
+    getdata()
+  }
+ },[user?.id,dispatch])
 
-  useEffect(() => {
-    getdata();
-  }, []);
+ 
+const handleDelete = async (id) => {
 
+    try {
+        let res = await fetch(`http://localhost:8000/expenses/${id}`, {
+            method: "DELETE"
+        });
+
+        dispatch(deleteExpense(id));
+        alert("Expense deleted ");
+
+    } catch (err) {
+        console.log(err);
+    }
+};
 
   return (
     <div className="d-flex">
       <Usersidebar></Usersidebar>
-
+      
       <div className="flex-grow-1 p-4">
+
         <h2 className="mb-4">All Transactions</h2>
+        <DashboardCard></DashboardCard>
+
        <div className="transactions-table-container">
   <table className="transactions-table">
     <thead>
@@ -58,16 +72,17 @@ const All_transactions = () => {
         <th>Title</th>
         <th>Amount</th>
         <th>Type</th>
+        <th>Action</th>
       </tr>
     </thead>
 
     <tbody>
-      {users.length > 0 ? (
-        users.map((item, i) => (
+      {expense.length > 0 ? (
+        expense.map((item, i) => (
           <tr key={item.id ?? i}>
             <td>{i + 1}</td>
             <td>{item.title}</td>
-            <td>₹{Number(item.amount).toLocaleString("en-IN")}</td>
+            <td>₹{Number(item.amount)}</td>
             <td>
               <span
                 className={`transaction-type ${
@@ -78,6 +93,10 @@ const All_transactions = () => {
               >
                 {item.type}
               </span>
+            </td>
+            <td>
+              <button
+        className="btn btn-danger btn-sm" onClick={() => handleDelete(item.id)}> Delete  </button>
             </td>
           </tr>
         ))

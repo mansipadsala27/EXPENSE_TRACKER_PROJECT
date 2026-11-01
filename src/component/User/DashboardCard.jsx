@@ -1,40 +1,48 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { FaRupeeSign } from 'react-icons/fa';
+import {
+  FaRupeeSign,
+  FaWallet,
+  FaArrowUp,
+  FaArrowDown
+} from 'react-icons/fa';
+import "../../css/DashboardCard.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { setexpenses } from '../../features/expenseslice';
 
 const DashboardCard = () => {
+  const dispatch=useDispatch()
+  const expense = useSelector((state) => state.expenses.expenses);
+  console.log("Redux expense:", expense);
+console.log("Is Array:", Array.isArray(expense));
 
-  const [users,setuser]=useState([])
-  const [expense,setExpense]=useState([])
-  
-  const {user}=useAuth()
+  const { user } = useAuth();
 
-useEffect(()=>{
-    const fetchuser=async()=>{
+  useEffect(() => {
+    // if (!user?.id) return;
 
-    try{
-
-    let expenseres = await fetch(`http://localhost:8000/expenses?userId=${user.id}`)
-    let expenseResult= await expenseres.json()
-    setExpense(expenseResult)
-    
-    }
+    const fetchExpense = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:8000/expenses?userId=${user.id}`
+        );
 
 
-    catch(err){
-      console.log(err);
-      return false
-      
-    }
-}
-fetchuser()
+        const result = await response.json();
+        dispatch(setexpenses(result))
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-},[])
+    fetchExpense();
+  }, [user?.id,dispatch]);
 
-// ------------------------=-----------------------expenses 
-const expenserecord=expense.filter((item)=>{
-  return item.type=="expense"
-})
+
+  // ------------------------=-----------------------expenses 
+const expenserecord = expense.filter(
+  (item) => item.type === "expense"
+);
 let totalexpense=expenserecord.reduce((total,item)=>{
   return total+Number(item.amount)
 },0)
@@ -52,36 +60,77 @@ let totalincome=incomerecord.reduce((total,item)=>{
 let totalbalance=totalincome-totalexpense
 // console.log(totalbalance);
 
+  return (
+    <div className="summary-grid">
 
+      {/* Total Income */}
+      <div className="summary-card income-card">
+        <div className="summary-card-top">
+          <div>
+            <p className="summary-label">Total Income</p>
+            <h3 className="summary-amount">
+              <FaRupeeSign />
+              {totalincome.toLocaleString('en-IN')}
+            </h3>
+          </div>
 
+          <div className="summary-icon income-icon">
+            <FaArrowDown />
+          </div>
+        </div>
 
-return (
-    <div className="row g-2">
-
-    <div className="col-md-4">
-        <div className="card bg-success bg-opacity-75  shadow-sm p-2">
-          <h5>Total Income</h5>
-          <h3><FaRupeeSign /> {totalincome}</h3>
+        <div className="summary-footer">
+          <span className="summary-dot"></span>
+          Money received
         </div>
       </div>
 
-      <div className="col-md-4">
-        <div className="card bg-danger bg-opacity-75  shadow-sm p-2 border-0">
-          <h5>Total Expenses</h5>
-          <h3><FaRupeeSign />{totalexpense}</h3>
+      {/* Total Expenses */}
+      <div className="summary-card expense-card">
+        <div className="summary-card-top">
+          <div>
+            <p className="summary-label">Total Expenses</p>
+            <h3 className="summary-amount">
+              <FaRupeeSign />
+              {totalexpense.toLocaleString('en-IN')}
+            </h3>
+          </div>
+
+          <div className="summary-icon expense-icon">
+            <FaArrowUp />
+          </div>
+        </div>
+
+        <div className="summary-footer">
+          <span className="summary-dot"></span>
+          Money spent
         </div>
       </div>
 
-      <div className="col-md-4">
-        <div className="card  bg-info bg-opacity-75 shadow-sm p-2 border-0">
-          <h5>Total Balance</h5>
-          <h3><FaRupeeSign /> {totalbalance}</h3>
+      {/* Total Balance */}
+      <div className="summary-card balance-card">
+        <div className="summary-card-top">
+          <div>
+            <p className="summary-label">Total Balance</p>
+            <h3 className="summary-amount">
+              <FaRupeeSign />
+              {totalbalance.toLocaleString('en-IN')}
+            </h3>
+          </div>
+
+          <div className="summary-icon balance-icon">
+            <FaWallet />
+          </div>
+        </div>
+
+        <div className="summary-footer">
+          <span className="summary-dot"></span>
+          Available balance
         </div>
       </div>
 
     </div>
   );
-}
+};
 
-
-export default DashboardCard
+export default DashboardCard;

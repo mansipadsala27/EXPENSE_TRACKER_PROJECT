@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 import Usersidebar from '../component/User/Usersidebar'
 import { useAuth } from '../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
+import { replace, useNavigate } from 'react-router-dom'
 import '../css/Addexpense.css';
+
+import { useDispatch } from 'react-redux';
+import { addexpense } from '../features/expenseslice';
 
 
 const Addexpense = () => {
+  const dispatch=useDispatch()
+
     const [formdata,setFormdata]=useState({
         type:'',
         title:'',
@@ -25,7 +30,7 @@ const Addexpense = () => {
     const handleSubmit=async(e)=>{
         e.preventDefault()
         
-        alert("Expense added")
+        
         let obj={
             userId:user?.id,
             title:formdata?.title,
@@ -36,12 +41,16 @@ const Addexpense = () => {
         try{
             let res= await fetch(`http://localhost:8000/expenses`,{
                 headers:{
-                    'Content-type':'applicaton/json'
+                    'Content-type':'application/json'
                 },
                 method:"POST",
                 body:JSON.stringify(obj)
             })
             let result= await res.json()
+            dispatch(addexpense(result))
+            alert("Expense added")
+           
+            navigate(`/userdash`, {replace:true})
             
         }
         catch(err){
@@ -49,14 +58,19 @@ const Addexpense = () => {
             return false
             
         }
-        navigate(`/userdash`)
+        
 
     }
   return (
   <div className="d-flex">
     <Usersidebar />
+<div className="flex-grow-1 p-4">
+
 
     <div className="addexpense-content">
+      <div className='mb-4'>
+
+      
       <h2>Add Transaction</h2>
 
       <form className="addexpense-form" onSubmit={handleSubmit}>
@@ -107,6 +121,8 @@ const Addexpense = () => {
         <button type="submit">Add Transaction</button>
 
       </form>
+    </div>
+   </div>
     </div>
   </div>
 )

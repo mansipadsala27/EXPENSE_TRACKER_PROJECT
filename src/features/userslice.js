@@ -1,25 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const userslice=createSlice({
-    name:'users',
+const userlice=createSlice({
+    name:'user',
 
     initialState:{
-        users:[],
+        user:[],
     },
     reducers:{
-        setusers:(state,action)=>{
-            state.users=action.payload;
+        setuser:(state,action)=>{
+            state.user=action.payload;
         },
-        adduser:(state,action)=>{
-            state.users.push=(action.payload)
+        addexpense:(state,action)=>{
+            state.user.push=(action.payload)
         }
 
     }
 })
 
 export const{
-    setusers,
-    adduser
-}=userslice.actions
+    setuser,
+    addexpense
+}=userlice.actions
 
-export default userslice.reducer
+export default userlice.reducer

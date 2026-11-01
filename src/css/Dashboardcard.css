@@ -1,0 +1,161 @@
+/* ===== Expense Tracker Summary Cards ===== */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  width: 100%;
+  margin: 10px 0 25px;
+}
+
+.summary-card {
+  position: relative;
+  overflow: hidden;
+  padding: 25px 24px 20px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.045);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.summary-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+
+.income-card::before {
+  background: linear-gradient(90deg, #10b981, #6ee7b7);
+}
+
+.expense-card::before {
+  background: linear-gradient(90deg, #f43f5e, #fda4af);
+}
+
+.balance-card::before {
+  background: linear-gradient(90deg, #6366f1, #a5b4fc);
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.09);
+}
+
+.summary-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.summary-label {
+  margin: 0 0 13px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.summary-amount {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  color: #172033;
+  font-size: clamp(20px, 2vw, 29px);
+  font-weight: 750;
+  letter-spacing: -0.7px;
+  overflow-wrap: anywhere;
+}
+
+.summary-amount svg {
+  font-size: 19px;
+  flex-shrink: 0;
+}
+
+.summary-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  font-size: 20px;
+}
+
+.income-icon {
+  color: #059669;
+  background: #d1fae5;
+}
+
+.expense-icon {
+  color: #e11d48;
+  background: #ffe4e6;
+}
+
+.balance-icon {
+  color: #4f46e5;
+  background: #e0e7ff;
+}
+
+.summary-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 15px;
+  border-top: 1px solid #f1f5f9;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.summary-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.expense-card .summary-dot {
+  background: #f43f5e;
+}
+
+.balance-card .summary-dot {
+  background: #6366f1;
+}
+
+/* ===== Tablet ===== */
+
+@media (max-width: 992px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .summary-card {
+    padding: 22px 18px;
+  }
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width: 576px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .summary-card {
+    padding: 22px;
+  }
+
+  .summary-amount {
+    font-size: 25px;
+  }
+}

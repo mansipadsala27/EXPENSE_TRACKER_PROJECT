@@ -81,24 +81,17 @@
     },
     {
       "userId": "zaL_8AcyuoU",
-      "title": "from papa",
-      "amount": "1200",
+      "title": "cash back",
+      "amount": "50",
       "type": "income",
-      "id": "xxvdTsYCjX8"
+      "id": "l4Vlm_ig6yg"
     },
     {
       "userId": "zaL_8AcyuoU",
-      "title": "nasto",
-      "amount": "250",
+      "title": "thikshake",
+      "amount": "120",
       "type": "expense",
-      "id": "rOWzx7El934"
-    },
-    {
-      "userId": "zaL_8AcyuoU",
-      "title": "from mansi ",
-      "amount": "200",
-      "type": "income",
-      "id": "lf4msZAmpeI"
+      "id": "gPcGeR1eAD8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

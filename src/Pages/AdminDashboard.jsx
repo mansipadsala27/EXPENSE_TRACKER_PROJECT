@@ -1,8 +1,8 @@
 import React from 'react'
-import { setusers } from '../features/userslice'
+import { setexpenses } from '../features/expenseslice'
 import { useNavigate } from 'react-router-dom'
 import Adminsidebar from '../component/Admin/Adminsidebar'
-import '../css/AdminDashboard.css'
+import '../css/Dashboardcard.css'
 import DashboardCard from '../component/Admin/DashboardCard'
 
 const AdminDashboard = () => {
