@@ -1,16 +1,26 @@
-# React + Vite
+Registration 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/66af5771-742d-4c92-a4e5-cb2ad1b50ec6" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+login
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e330a671-3525-4d45-9a88-5f0a67eb5814" />
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+----Admin side 
 
-## React Compiler
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1d5c3b53-e604-4d37-9f0d-d4698a523127" />
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/11240cf0-945f-401d-8308-792b554b693a" />
 
-## Expanding the Oxlint configuration
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b11d730d-41fc-4474-bd2a-e44fdbf92e55" />
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7982a174-bdca-4c9a-a7ca-2443892c8037" />
+
+----User side 
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d460cbd6-5d2a-442c-b370-5290df0da54f" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0f6d2040-9f84-4e20-ab79-4f6bd1d28a97" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/117c1501-8330-4c13-ad27-30e3ba364762" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c405fd57-8b0b-49a0-9f08-b5f7e407f942" />
