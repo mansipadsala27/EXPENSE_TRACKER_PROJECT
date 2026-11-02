@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../context/AuthContext';
-import { FaRupeeSign } from 'react-icons/fa';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { setuser } from '../../features/userslice';
+import { setexpenses } from '../../features/expenseslice';
+import {
+  FaRupeeSign,
+  FaWallet,
+  FaArrowUp,
+  FaArrowDown
+} from 'react-icons/fa';
+import "../../css/DashboardCard.css";
 const DashboardCard = () => {
 
-  const [users,setuser]=useState([])
-  const [expense,setExpense]=useState([])
-  
+  const dispatch=useDispatch()
+  const user=useSelector((state)=>state.user.user)
+  const expense =useSelector((state)=>state.expenses.expenses)
+
 useEffect(()=>{
     const fetchuser=async()=>{
 
@@ -18,8 +28,9 @@ useEffect(()=>{
     let expenseres = await fetch(`http://localhost:8000/expenses`)
     let expenseResult= await expenseres.json()
 
-    setuser(userResult)
-    setExpense(expenseResult)
+    dispatch(setuser(userResult))
+
+    dispatch(setexpenses(expenseResult))
 
     }
 
@@ -32,9 +43,9 @@ useEffect(()=>{
 }
 fetchuser()
 
-},[])
+},[dispatch])
 
-const totaluser=users.length
+const totaluser=user.length 
 // ------------------------=-----------------------expenses 
 const expenserecord=expense.filter((item)=>{
   return item.type=="expense"
@@ -60,35 +71,97 @@ let totalbalance=totalincome-totalexpense
 
 
 return (
-    <div className="row g-2">
+   <div className="summary-grid admin-summary-grid">
 
-      <div className="col-md-3">
-        <div className="card bg-info bg-opacity-75 shadow-sm p-2">
-          <h5>Total Users</h5>      
-          <h3>{totaluser}</h3>
-        </div>
-      </div>
+     {/* Total Balance */}
+          <div className="summary-card balance-card">
+            <div className="summary-card-top">
+              <div>
+                <p className="summary-label">Total User</p>
+                <h3 className="summary-amount">
+                  
+                  {totaluser.toLocaleString('en-IN')}
+                </h3>
+              </div>
+    
+              <div className="summary-icon balance-icon">
+                <FaWallet />
+              </div>
+            </div>
+    
+            <div className="summary-footer">
+              <span className="summary-dot"></span>
+              User Registered
+            </div>
+          </div>
+    
 
-    <div className="col-md-3">
-        <div className="card bg-success bg-opacity-75 shadow-sm p-2">
-          <h5>Total Income</h5>
-          <h3><FaRupeeSign /> {totalincome}</h3>
-        </div>
-      </div>
+       {/* Total Income */}
+          <div className="summary-card income-card">
+            <div className="summary-card-top">
+              <div>
+                <p className="summary-label">Total Income</p>
+                <h3 className="summary-amount">
+                  <FaRupeeSign />
+                  {totalincome.toLocaleString('en-IN')}
+                </h3>
+              </div>
+    
+              <div className="summary-icon income-icon">
+                <FaArrowDown />
+              </div>
+            </div>
+    
+            <div className="summary-footer">
+              <span className="summary-dot"></span>
+              Money received
+            </div>
+          </div>
 
-      <div className="col-md-3">
-        <div className="card bg-danger bg-opacity-75 shadow-sm p-2">
-          <h5>Total Expenses</h5>
-          <h3><FaRupeeSign />{totalexpense}</h3>
-        </div>
-      </div>
+       {/* Total Expenses */}
+            <div className="summary-card expense-card">
+              <div className="summary-card-top">
+                <div>
+                  <p className="summary-label">Total Expenses</p>
+                  <h3 className="summary-amount">
+                    <FaRupeeSign />
+                    {totalexpense.toLocaleString('en-IN')}
+                  </h3>
+                </div>
+      
+                <div className="summary-icon expense-icon">
+                  <FaArrowUp />
+                </div>
+              </div>
+      
+              <div className="summary-footer">
+                <span className="summary-dot"></span>
+                Money spent
+              </div>
+            </div>
 
-      <div className="col-md-3">
-        <div className="card  bg-warning bg-opacity-75 shadow-sm p-2">
-          <h5>Total Balance</h5>
-          <h3><FaRupeeSign /> {totalbalance}</h3>
-        </div>
-      </div>
+       {/* Total Balance */}
+            <div className="summary-card balance-card">
+              <div className="summary-card-top">
+                <div>
+                  <p className="summary-label">Total Balance</p>
+                  <h3 className="summary-amount">
+                    <FaRupeeSign />
+                    {totalbalance.toLocaleString('en-IN')}
+                  </h3>
+                </div>
+      
+                <div className="summary-icon balance-icon">
+                  <FaWallet />
+                </div>
+              </div>
+      
+              <div className="summary-footer">
+                <span className="summary-dot"></span>
+                Available balance
+              </div>
+            </div>
+      
 
     </div>
   );

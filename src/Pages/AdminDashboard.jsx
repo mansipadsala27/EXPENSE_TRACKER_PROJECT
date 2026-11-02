@@ -2,7 +2,7 @@ import React from 'react'
 import { setexpenses } from '../features/expenseslice'
 import { useNavigate } from 'react-router-dom'
 import Adminsidebar from '../component/Admin/Adminsidebar'
-import '../css/Dashboardcard.css'
+import '../css/Dashboardsidebar.css'
 import DashboardCard from '../component/Admin/DashboardCard'
 
 const AdminDashboard = () => {

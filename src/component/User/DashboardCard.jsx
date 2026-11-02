@@ -7,20 +7,18 @@ import {
   FaArrowDown
 } from 'react-icons/fa';
 import "../../css/DashboardCard.css";
+
 import { useDispatch, useSelector } from 'react-redux';
 import { setexpenses } from '../../features/expenseslice';
 
 const DashboardCard = () => {
   const dispatch=useDispatch()
   const expense = useSelector((state) => state.expenses.expenses);
-  console.log("Redux expense:", expense);
-console.log("Is Array:", Array.isArray(expense));
 
   const { user } = useAuth();
 
   useEffect(() => {
-    // if (!user?.id) return;
-
+  
     const fetchExpense = async () => {
       try {
         const response = await fetch(

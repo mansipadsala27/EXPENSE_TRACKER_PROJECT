@@ -38,31 +38,10 @@
   ],
   "expenses": [
     {
-      "id": "1",
-      "userId": "-_U7yrfvP-s",
-      "title": "Shopping",
-      "amount": 500,
-      "type": "expense"
-    },
-    {
       "id": "2",
       "userId": "-_U7yrfvP-s",
       "title": "Salary",
       "amount": 5000,
-      "type": "income"
-    },
-    {
-      "id": "3",
-      "userId": "zaL_8AcyuoU",
-      "title": "Food",
-      "amount": 300,
-      "type": "expense"
-    },
-    {
-      "id": "4",
-      "userId": "zaL_8AcyuoU",
-      "title": "Salary",
-      "amount": 30000,
       "type": "income"
     },
     {
@@ -81,17 +60,24 @@
     },
     {
       "userId": "zaL_8AcyuoU",
-      "title": "cash back",
-      "amount": "50",
-      "type": "income",
-      "id": "l4Vlm_ig6yg"
-    },
-    {
-      "userId": "zaL_8AcyuoU",
       "title": "thikshake",
       "amount": "120",
       "type": "expense",
       "id": "gPcGeR1eAD8"
+    },
+    {
+      "userId": "zaL_8AcyuoU",
+      "title": "from papa",
+      "amount": "1200",
+      "type": "income",
+      "id": "_KKOB32cBEs"
+    },
+    {
+      "userId": "zaL_8AcyuoU",
+      "title": "from hensi",
+      "amount": "500",
+      "type": "income",
+      "id": "tidcQ0Q2HkM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

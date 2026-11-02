@@ -1,27 +1,26 @@
-
 import React from "react";
 import {
   LayoutDashboard,
   Users,
   Tags,
   Receipt,
-  ChartNoAxesCombined,
   UserRound,
   LogOut,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate, NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 const Adminsidebar = () => {
-const navigate=useNavigate()
-const {user,setUser}=useAuth()
+  const navigate = useNavigate();
+  const { user, setUser } = useAuth();
 
-const handleLogout=()=>{
- localStorage.removeItem('loginUser')
- setUser(null)
+  const handleLogout = () => {
+    localStorage.removeItem("loginUser");
+    setUser(null);
+    navigate("/", { replace: true });
+  };
 
-  navigate('/',{replace:true})
-}
   return (
     <aside className="admin-sidebar">
       <div className="sidebar-brand">
@@ -30,6 +29,7 @@ const handleLogout=()=>{
         </div>
 
         <div>
+          <h3>{user?.name}</h3>
           <h3>Expense Tracker</h3>
           <p>Admin Panel</p>
         </div>
@@ -38,42 +38,29 @@ const handleLogout=()=>{
       <p className="sidebar-heading">MAIN MENU</p>
 
       <nav className="sidebar-menu">
-        <a href="#dashboard" className="sidebar-link active">
+        <NavLink to="/admindash" className="sidebar-link">
           <LayoutDashboard size={19} />
           <span>Dashboard</span>
-        </a>
+        </NavLink>
 
-        <a href="#users" className="sidebar-link">
-          <Users size={19} />
-          <span>Users</span>
-        </a>
-
-        <a href="#categories" className="sidebar-link">
+        <NavLink to="/allusers" className="sidebar-link">
           <Tags size={19} />
-          <span>Categories</span>
-        </a>
+          <span>All Users</span>
+        </NavLink>
 
-        <a href="#transactions" className="sidebar-link">
+        <NavLink to="/alluserstransactions" className="sidebar-link">
           <Receipt size={19} />
           <span>All Transactions</span>
-        </a>
+        </NavLink>
 
-        <a href="#reports" className="sidebar-link">
-          <ChartNoAxesCombined size={19} />
-          <span>Reports</span>
-        </a>
-
-        <a href="#profile" className="sidebar-link">
+        <NavLink to="/adminprofile" className="sidebar-link">
           <UserRound size={19} />
           <span>Profile</span>
-        </a>
+        </NavLink>
       </nav>
 
       <div className="sidebar-bottom">
-        <button
-          className="sidebar-link logout-link"
-          onClick={handleLogout}
-        >
+        <button className="sidebar-link logout-link" onClick={handleLogout}>
           <LogOut size={19} />
           <span>Logout</span>
         </button>

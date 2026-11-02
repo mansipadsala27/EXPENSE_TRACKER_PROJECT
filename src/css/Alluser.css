@@ -1,0 +1,157 @@
+
+.all-users-page {
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+.page-title {
+    font-size: 27px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+/* Main Container */
+
+.users-container {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+
+.users-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.users-header h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.users-header p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* Total Users */
+
+.total-users {
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    padding: 12px 25px;
+    border-radius: 12px;
+    min-width: 140px;
+}
+
+.total-users h5 {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+.total-users h3 {
+    color: #2563eb;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Table */
+
+.users-table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.users-table thead {
+    background: #f1f5f9;
+}
+
+.users-table th {
+    padding: 16px;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+}
+
+.users-table td {
+    padding: 16px;
+    vertical-align: middle;
+    color: #475569;
+    font-size: 14px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.users-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* User Name */
+
+.user-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.user-avatar {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    background: #dbeafe;
+    color: #2563eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Role */
+
+.role {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.admin {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+.user {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .users-container {
+        padding: 15px;
+    }
+
+    .all-users-page {
+        padding: 15px !important;
+    }
+
+    .users-header {
+        align-items: flex-start;
+    }
+}

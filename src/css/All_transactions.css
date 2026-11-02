@@ -1,100 +1,152 @@
-/* Main table container */
+/* ===== All Transactions Page ===== */
+
 .transactions-table-container {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
-    margin-top: 20px;
-    overflow-x: auto;
+  width: 100%;
+  margin-top: 28px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+  overflow-x: auto;
 }
 
-/* Table styling */
+/* Table */
+
 .transactions-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 550px;
-    font-family: Arial, sans-serif;
+  width: 100%;
+  min-width: 750px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
 }
 
-/* Table heading */
-.transactions-table thead {
-    background: #263449;
-    color: #ffffff;
+/* Table Header */
+
+.transactions-table thead th {
+  background: #f8faff;
+  color: #64748b;
+  padding: 17px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  text-align: left;
+  border-bottom: 1px solid #e9edf5;
+  white-space: nowrap;
 }
 
-.transactions-table th {
-    padding: 16px 20px;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.transactions-table thead th:first-child {
+  border-radius: 10px 0 0 0;
 }
 
-/* Table body */
-.transactions-table td {
-    padding: 10px 20px;
-    font-size: 15px;
-    color: #444b57;
-    border-bottom: 1px solid #edf0f4;
+.transactions-table thead th:last-child {
+  border-radius: 0 10px 0 0;
 }
 
-/* Alternate row color */
-.transactions-table tbody tr:nth-child(even) {
-    background: #f8fafc;
+/* Table Body */
+
+.transactions-table tbody td {
+  padding: 18px;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
 }
 
-/* Hover effect */
+/* Row Hover */
+
 .transactions-table tbody tr {
-    transition: background-color 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .transactions-table tbody tr:hover {
-    background: #edf4ff;
+  background: #f8faff;
 }
 
-/* Amount styling */
-.transactions-table td:nth-child(3) {
-    font-weight: 600;
-    color: #263449;
+.transactions-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-/* Income and expense badges */
+/* Serial Number */
+
+.transactions-table tbody td:first-child {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Amount */
+
+.transactions-table tbody td:nth-child(4) {
+  color: #172033;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Transaction Type Badges */
+
 .transaction-type {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: capitalize;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 85px;
+  padding: 7px 13px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
 .transaction-income {
-    background: #dcfce7;
-    color: #15803d;
+  color: #059669;
+  background: #d1fae5;
 }
 
 .transaction-expense {
-    background: #fee2e2;
-    color: #b91c1c;
+  color: #e11d48;
+  background: #ffe4e6;
 }
 
-/* Empty table message */
+/* Delete Button */
+
+.transaction-delete-btn {
+  padding: 7px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #fff1f2;
+  color: #e11d48;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.transaction-delete-btn:hover {
+  background: #e11d48;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* No Transactions */
+
 .no-transactions {
-    text-align: center;
-    padding: 30px;
-    color: #7b8493;
+  padding: 45px 15px !important;
+  text-align: center;
+  color: #94a3b8 !important;
+  font-size: 15px !important;
 }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
-    .transactions-table-container {
-        padding: 12px;
-    }
+/* Responsive */
 
-    .transactions-table th,
-    .transactions-table td {
-        padding: 12px;
-        font-size: 13px;
-    }
+@media (max-width: 768px) {
+  .transactions-table-container {
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 12px;
+  }
+
+  .transactions-table thead th,
+  .transactions-table tbody td {
+    padding: 14px 12px;
+  }
 }

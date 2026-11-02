@@ -1,16 +1,20 @@
-
-import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Navigate, Outlet } from "react-router-dom";
 
-const Protected = () => {
+const Protected = ({ role }) => {
+
   const { user } = useAuth();
 
-    
-        if(!user || user.role != "admin"){
-            return <Navigate to={`/`} replace/>
-        }
+  if (!user) {
+    return <Navigate to="/" replace />;
+  }
 
+  if (user.role !== role) {
+    return <Navigate
+      to={user.role === "admin" ? "/admindash" : "/userdash"}
+      replace
+    />;
+  }
 
   return <Outlet />;
 };
